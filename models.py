@@ -34,6 +34,7 @@ class CombatResult:
     hit_chance: float
     dice_roll: int
     hit: bool
+    hero_magic: int
     monster_died: bool
     monster_hp: int
     monster_max_hp: int
@@ -182,6 +183,7 @@ class Hero(Entity):
     def __init__(self, hp, base_force):
         super().__init__(START_POSITION, HERO_SYMBOL) # Départ selon START_POSITION
         self.hp = hp
+        self.magic = magic
         self.max_hp = hp  # HP maximum pour les potions
         self.base_force = base_force
         self.weapons = []  # Liste des armes équipées
@@ -193,7 +195,7 @@ class Hero(Entity):
         """Force totale = force de base + somme des bonus des armes"""
         # Generator expression : calcule efficacement la somme sans créer de liste
         weapon_bonus = sum(weapon.force_bonus for weapon in self.weapons)
-        return self.base_force + weapon_bonus
+        return self.base_force + weapon_bonus + self.magic
     
     @property
     def inventory(self):
@@ -370,4 +372,5 @@ class Board:
 
 if __name__ == "__main__":
     print("ATTENTION: Ce fichier contient les modèles de données du jeu.")
+
     print("Pour lancer le jeu, exécutez : python controller.py")
