@@ -12,7 +12,7 @@ from settings import (
     PlayerAction
 )
 
-""" ff
+"""
 models.py
 Ce fichier gère la logique des données (Le Modèle).
 Il contient les classes Hero, Monster et Board.

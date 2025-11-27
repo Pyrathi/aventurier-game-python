@@ -28,6 +28,7 @@ END_POSITION = (GRID_SIZE - 1, GRID_SIZE - 1)  # Position d'arrivée (calculée 
 NB_MONSTERS = 7 # Nombre de monstres sur la carte
 
 # Configuration du Héros
+   
 START_HP = 7       # Points de vie de départ
 START_FORCE = 10   # Force de frappe de base
 HERO_DAMAGE = 1    # Dégâts infligés par le héros quand il touche
