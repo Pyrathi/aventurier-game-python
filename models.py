@@ -189,12 +189,24 @@ class Hero(Entity):
         self.weapons = []  # Liste des armes équipées
         self.move_count = 0  # Compteur de mouvements
         self.monsters_defeated = 0  # Compteur de monstres vaincus
+        self._agility = agility
     
     @property
     def force(self) -> int:
         """Force totale = force de base + somme des bonus des armes"""
         # Generator expression : calcule efficacement la somme sans créer de liste
         weapon_bonus = sum(weapon.force_bonus for weapon in self.weapons)
+        return self.base_force + weapon_bonus
+
+    @property
+    def agility(self) -> int:
+        """Agilité = somme du champ calculé force"""
+        return self.force  # correspond à la demande : somme du champ calculé force
+
+    @agility.setter
+    def agility(self, value):
+        """Setter pour compatibilité, même si agility est calculée."""
+        self._agility = value
         return self.base_force + weapon_bonus + self.magic
     
     @property
