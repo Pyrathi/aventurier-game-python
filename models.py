@@ -34,7 +34,6 @@ class CombatResult:
     hit_chance: float
     dice_roll: int
     hit: bool
-    hero_magic: int
     monster_died: bool
     monster_hp: int
     monster_max_hp: int
