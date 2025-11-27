@@ -34,6 +34,7 @@ class CombatResult:
     hit_chance: float
     dice_roll: int
     hit: bool
+    hero_magic: int
     monster_died: bool
     monster_hp: int
     monster_max_hp: int
@@ -182,6 +183,7 @@ class Hero(Entity):
     def __init__(self, hp, base_force):
         super().__init__(START_POSITION, HERO_SYMBOL) # Départ selon START_POSITION
         self.hp = hp
+        self.magic = magic
         self.max_hp = hp  # HP maximum pour les potions
         self.base_force = base_force
         self.weapons = []  # Liste des armes équipées
@@ -205,6 +207,7 @@ class Hero(Entity):
     def agility(self, value):
         """Setter pour compatibilité, même si agility est calculée."""
         self._agility = value
+        return self.base_force + weapon_bonus + self.magic
     
     @property
     def inventory(self):
