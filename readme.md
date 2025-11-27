@@ -1,1 +1,1 @@
-test
+Exercice git en groupe
