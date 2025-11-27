@@ -180,16 +180,16 @@ class Monster(Entity):
 
 class Hero(Entity):
     """Le héros contrôlé par le joueur"""
-    def __init__(self, hp, base_force, magic, agility):
+    def __init__(self, hp, base_force):
         super().__init__(START_POSITION, HERO_SYMBOL) # Départ selon START_POSITION
         self.hp = hp
-        self.magic = magic
+        self.magic = 1
         self.max_hp = hp  # HP maximum pour les potions
         self.base_force = base_force
         self.weapons = []  # Liste des armes équipées
         self.move_count = 0  # Compteur de mouvements
         self.monsters_defeated = 0  # Compteur de monstres vaincus
-        self._agility = agility
+        self._agility = 1
     
     @property
     def force(self) -> int:
@@ -386,4 +386,5 @@ if __name__ == "__main__":
     print("ATTENTION: Ce fichier contient les modèles de données du jeu.")
 
     print("Pour lancer le jeu, exécutez : python controller.py")
+
 
